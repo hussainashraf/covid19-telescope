@@ -58,15 +58,16 @@ export default function Navbar() {
                     alt="Your Company"
                   />
                 </div>
-                {isAuthenticated&&
+              {isAuthenticated&&
                 
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-6 sm:block" >
                 <div className="flex-row justify-evenly space-x-4">
-                    <a className='flex'>
+                    <a className='flex space-x-4"'>
+                       {/* <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a> */}
                       <button onClick={dashbord}className='text-gray-300 list-none hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Dashboard</button>
                       <button onClick={changepage} className='text-gray-300 list-none hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Profile</button>
                     </a>
-                  )
+                  
                 </div>
               </div>}
          
@@ -140,25 +141,19 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-
+          {isAuthenticated&&
+          
           <Disclosure.Panel className="sm:hidden">
-            {/* <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
+            <div className="space-y-1 px-2 pt-2 pb-3">
+                <Disclosure.Button>
+                <button onClick={dashbord}className='text-gray-300 list-none hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Dashboard</button>
+                <button onClick={changepage} className='text-gray-300 list-none hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'>Profile</button>
                 </Disclosure.Button>
-              ))}
-            </div> */}
+            </div>
           </Disclosure.Panel>
+          
+          }
+          
         </>
       )}
     </Disclosure>

@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Line } from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 import numeral from 'numeral'
 
 const options = {
     legend: {
         display: false,
+      
     },
     elements: {
         point: {
-            radius: 0,
+            radius: 2,
         },
     },
     maintainAspectRatio: false,
     tooltips: {
         mode: "index",
         intersect: false,
+        bodySpacing: 0.1,
         callbacks: {
             label: function (tooltipItem, data) {
                 return numeral(tooltipItem.value).format("+0,0");
@@ -28,13 +30,16 @@ const options = {
                 time: {
                     format: "MM/DD/YY",
                     tooltipFormat: "ll",
+                    // barPercentage: 0.4
+                    
+
                 },
             },
         ],
         yAxes: [
             {
                 gridLines: {
-                    display: true,
+                    display: false,
                 },
                 ticks: {
                     callback: function (value, index, values) {
@@ -56,7 +61,7 @@ const LineGraph = ({ casesType="cases" }) => {
             if(lastPoint) {
                 const newPoint = {
                     x: date,
-                    y: data[caseType][date] - lastPoint
+                    y: data[caseType][date]-lastPoint
                 }
                 chartData.push(newPoint)
             }
@@ -81,12 +86,18 @@ const LineGraph = ({ casesType="cases" }) => {
     return (
         <div>
             {data?.length > 0 && (
-                <Line 
+                <Bar 
                     options={options}
                     data={{
                         datasets: [{
-                            backgroundColor: "rgba(204, 16, 52, 0.5)",
+                            // rgb(217,236,251)
+                            backgroundColor: "#fca311",
+                            barThickness: 25,
                             borderColor: "#CC1034", 
+                            borderWidth: 1,
+                            barPercentage:0.1,
+                            categoryPercentage:0.5,
+                            borderRadius:10,
                             data: data
                         }]
                     }}  

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { MenuItem, FormControl, Select, CardContent,Card } from "@material-ui/core";
 import Information from "../components/Information";
-import '../main.css'
+import '../Main.css'
 import Graph from "./Graph";
 import Table from './Table'
-import nFormatter from "./Number";
+import Bar from './Bar'
+// import nFormatter from "./Number";
 // import axios from "axios";
 function Dashbord() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("Worldwide");
   const [countryInfo,setCountryInfo] = useState({})
+  //eslint-disable-next-line
   const [tableData,setTableData] = useState([])
 
   useEffect(() => {
@@ -47,10 +49,11 @@ function Dashbord() {
   };
   
   return (
+    <>
     <div className="flex justify-evenly p-10">
       <div className="app_left">
         <div className="flex justify-between mb-20 object-center">
-          <h1 className="text-3xl">Covid-19 Tracker App</h1>
+          <h1 className="">Covid-19 Tracker App</h1>
           <FormControl>
             <Select
               variant="outlined"
@@ -71,18 +74,30 @@ function Dashbord() {
           <Information  title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
       </div>
-      <Card className="app_right">
-        <CardContent>
-        <h3>Live Cases by Country</h3>
-        <Table countries={country} cases={countryInfo.cases}/>
-        <h3>World Wide new Cases</h3>
-        <Graph/>
-        <p className="text-xs text-black font-medium">Update in Every 10 min</p>
-        </CardContent>
-      </Card>
+     
 
       
     </div>
+    <div class="w-90">
+    <Card >
+     <CardContent className="">
+     <h3 className="text-black text-lg font-semibold">Live Cases by Country</h3>
+     <p>Scroll Down for more</p>
+     <Table countries={tableData}/>
+     <h3 className="text-black text-lg font-semibold">World Wide new Cases</h3>
+     <Graph/>
+     <p class="text-xs text-black font-medium">Update in Every 10 min</p>
+     </CardContent>
+    </Card>
+    </div>
+ 
+    <div>
+      <h3 className="text-black text-lg font-semibold">World Wide new Cases</h3>
+      <Bar/>
+      <p className="text-xs text-black font-medium">Update in Every 10 min</p>
+    </div>
+    </>
+    
   );
 }
 

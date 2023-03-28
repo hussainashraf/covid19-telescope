@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Navbar from "./components/Navbar";
 import Page from "./components/Page";
 import Welcome from "./components/Welcome";
+import './App.css'
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();

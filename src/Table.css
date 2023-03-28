@@ -1,8 +1,15 @@
 .tablemain{
     margin-top: 20px;
     overflow-y: scroll;
-    height: 100px;
-    color: #6a5d5d;
+    height: 200px;
+    color: black;
+    width: 300px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .tablemain tr{
@@ -14,5 +21,5 @@
     padding: 0.5rem;
 }
 .tablemain tr:nth-of-type(odd){
-    background-color: #f3f2f8;
+    background-color: #f2e9e4;
 }
