@@ -50,7 +50,7 @@ function Dashbord() {
     <div className="flex justify-evenly p-10">
       <div className="app_left">
         <div className="flex justify-between mb-20 object-center">
-          <h1>Covid-19 Tracker App</h1>
+          <h1 className="text-3xl">Covid-19 Tracker App</h1>
           <FormControl>
             <Select
               variant="outlined"
